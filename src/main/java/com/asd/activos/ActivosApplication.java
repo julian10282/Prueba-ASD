@@ -8,7 +8,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 public class ActivosApplication {
-	// this is my second commit
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ActivosApplication.class, args);
 	}
