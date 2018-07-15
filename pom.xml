@@ -93,6 +93,20 @@
 			<artifactId>junit-addons</artifactId>
 			<version>1.4</version>
 		</dependency> -->
+
+
+
+
+		<dependency>
+			<groupId>com.asd</groupId>
+			<artifactId>ActivosPersistence</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+<!-- 		<groupId>com.asd</groupId> -->
+<!-- 		<artifactId>ActivosPersistence</artifactId> -->
+<!-- 	<version>0.0.1-SNAPSHOT</version> -->
+<!-- 	<packaging>jar</packaging> -->
 		
 	</dependencies>
 

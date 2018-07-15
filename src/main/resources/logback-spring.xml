@@ -6,11 +6,11 @@
 
 	<appender name="FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/logs/campaign.log</file>
+		<file>/logs/Activos.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover. Make sure the path matches the one in the file element 
 				or else the rollover logs are placed in the working directory. -->
-			<fileNamePattern>/logs/archive/campaign_%d{yyyy-MM-dd}.%i.log
+			<fileNamePattern>/logs/archive/Activos_%d{yyyy-MM-dd}.%i.log
 			</fileNamePattern>
 
 			<timeBasedFileNamingAndTriggeringPolicy
