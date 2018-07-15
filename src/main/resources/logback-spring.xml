@@ -27,6 +27,6 @@
 	<root level="ERROR">
 		<appender-ref ref="FILE" />
 	</root>
-	<logger name="com.aldeamo.campaign" level="DEBUG" />
+	<logger name="com.asd.activos" level="DEBUG" />
 
 </configuration>
