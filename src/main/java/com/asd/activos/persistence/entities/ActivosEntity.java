@@ -23,15 +23,15 @@ public class ActivosEntity {
 	private String nombre;
 	
 	@Column(name = "descripcion")
-	private Integer descripcion;
+	private String descripcion;
 	
-	@Column(name = "tipoActivo")
+	@Column(name = "tipoactivo")
 	private Integer tipoActivo;
 	
 	@Column(name = "serial")
 	private String serial;
 	
-	@Column(name = "numeroInterno")
+	@Column(name = "numerointerno")
 	private Integer numeroInterno;
 	
 	@Column(name = "alto")
@@ -43,14 +43,14 @@ public class ActivosEntity {
 	@Column(name = "largo")
 	private Float largo;
 	
-	@Column(name = "valorCompra")
+	@Column(name = "valorcompra")
 	private Float valorCompra;
 	
-	@Column(name = "fechaCompra")
+	@Column(name = "fechacompra")
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="America/Bogota")
 	private Date fechaCompra;
 	
-	@Column(name = "fechaBaja")
+	@Column(name = "fechabaja")
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="America/Bogota")
 	private Date fechaBaja;	
 	
@@ -134,14 +134,14 @@ public class ActivosEntity {
 	/**
 	 * @return the descripcion
 	 */
-	public Integer getDescripcion() {
+	public String getDescripcion() {
 		return descripcion;
 	}
 
 	/**
 	 * @param descripcion the descripcion to set
 	 */
-	public void setDescripcion(Integer descripcion) {
+	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
