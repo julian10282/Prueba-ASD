@@ -1,4 +1,4 @@
-package com.asd.enumerator;
+package com.asd.activos.enumerator;
 
 public enum EstadoActivoEnum {
 	

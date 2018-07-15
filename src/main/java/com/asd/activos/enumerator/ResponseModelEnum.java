@@ -1,10 +1,10 @@
-package com.asd.enumerator;
+package com.asd.activos.enumerator;
 
 public enum ResponseModelEnum {
 	
 	SUCCESS(200L,"Success in process"),
 	BAD_REQUEST(400L,"Bad parameter request"),
-	NOT_FOUND(404L,"URL Request not found"),
+	NOT_FOUND(404L,"Request with no result"),
 	INTERNAL_ERROR(500L,"Internal server error");
 	
 	private Long code;

@@ -5,8 +5,8 @@
 
 	<groupId>com.asd</groupId>
 	<artifactId>Activos</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
 
 	<name>Activos</name>
 	<description>Demo project for Spring Boot</description>
@@ -15,12 +15,11 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+<!-- 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
+<!-- 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding> -->
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -30,11 +29,11 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-tomcat</artifactId> -->
+<!-- 			<scope>provided</scope> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -100,13 +99,8 @@
 		<dependency>
 			<groupId>com.asd</groupId>
 			<artifactId>ActivosPersistence</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.1</version>
 		</dependency>
-		
-<!-- 		<groupId>com.asd</groupId> -->
-<!-- 		<artifactId>ActivosPersistence</artifactId> -->
-<!-- 	<version>0.0.1-SNAPSHOT</version> -->
-<!-- 	<packaging>jar</packaging> -->
 		
 	</dependencies>
 

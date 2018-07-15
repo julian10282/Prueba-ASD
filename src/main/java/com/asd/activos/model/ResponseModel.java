@@ -1,9 +1,9 @@
-package com.asd.model;
+package com.asd.activos.model;
 
 import java.util.List;
 
+import com.asd.activos.enumerator.ResponseModelEnum;
 import com.asd.activos.persistence.entities.ActivosEntity;
-import com.asd.enumerator.ResponseModelEnum;
 
 public class ResponseModel {
 	private Long code;
