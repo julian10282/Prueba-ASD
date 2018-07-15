@@ -2,21 +2,21 @@ package com.asd.enumerator;
 
 public enum EstadoActivoEnum {
 	
-	ACTIVO(1L,"Activo"),
-	BAJA(2L,"Dado de baja"),
-	REPERACION(3L,"En reparacion"),
-	DISPONIBLE(4L,"Disponible"),
-	ADIGNADO(5L,"Disponible");
+	ACTIVO(1,"Activo"),
+	BAJA(2,"Dado de baja"),
+	REPERACION(3,"En reparacion"),
+	DISPONIBLE(4,"Disponible"),
+	ADIGNADO(5,"Disponible");
 	
-	private Long code;
+	private int code;
 	private String description;
 	
-	EstadoActivoEnum(Long code, String description){
+	EstadoActivoEnum(int code, String description){
 		this.code = code;
 		this.description = description;
 	}
 
-	public Long getCode() {
+	public int getCode() {
 		return code;
 	}
 
