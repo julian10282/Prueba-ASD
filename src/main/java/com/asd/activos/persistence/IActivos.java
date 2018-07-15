@@ -15,10 +15,4 @@ public interface IActivos  extends CrudRepository<ActivosEntity, Integer>{
 	
 	List<ActivosEntity> findByFechaCompraBetween(Date fechaInicial, Date fechaFinal);
 	
-//	@Modifying
-//	@Query("SELECT c FROM CampaignEntity c WHERE c.processStatus in :processStatus AND c.status=true AND c.dateToSend <= NOW()")
-//	List<CampaignEntity> getProgrammedCampaignsByProcessStatus(@Param("processStatus") List<Integer> processStatus);
-//
-//	List<CampaignEntity> findByClientIdAndProcessStatus(Integer clientId, int id);
-	
 }
