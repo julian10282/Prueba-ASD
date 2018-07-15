@@ -1,7 +1,9 @@
 package com.asd.activos.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.ManagedBean;
 
@@ -142,4 +144,56 @@ public class ActivosController {
 			return new ResponseModel(ResponseModelEnum.INTERNAL_ERROR);
 		}
 	}
+
+	public ResponseModel updateActivo(ActivosEntity activo) {
+		ResponseModel response = new ResponseModel(ResponseModelEnum.SUCCESS);
+		logger.info("updateActivo - Actualizando activo");
+		
+		try {
+			Optional<ActivosEntity> optionalOldActivo = activosCrudRepository.findById(activo.getId());
+			
+			
+			if (optionalOldActivo.isPresent()) {
+				ActivosEntity oldActivo = optionalOldActivo.get();
+				
+				if (oldActivo == null) {
+					response = new ResponseModel(ResponseModelEnum.NOT_FOUND);
+					logger.info("updateActivo - Activo no encontrado [RESPONSE={}]", response);
+					return response;
+				}
+				
+				if (validaFechas(activo.getFechaBaja(), oldActivo.getFechaCompra())) {
+					response = new ResponseModel(ResponseModelEnum.BAD_REQUEST);
+					logger.info("updateActivo - El activo no puede actualizarce debido a que la fecha de baja es menor a la fecha de compra [RESPONSE={}]", response);
+					return response;
+				}
+								
+				oldActivo.setFechaBaja(activo.getFechaBaja());
+				oldActivo.setSerial(activo.getSerial());
+				
+				logger.info("updateActivo - Guardando nueva informacion del activo [Activo={}]", oldActivo);
+				activosCrudRepository.save(oldActivo);
+				
+				List<ActivosEntity> activos = new ArrayList<>();
+				activos.add(oldActivo);
+				response.setBody(activos);
+				return response;
+				
+			} else {
+				response = new ResponseModel(ResponseModelEnum.NOT_FOUND);
+				logger.info("updateActivo - Activo no encontrado [RESPONSE={}]", response);
+				return response;
+			}
+			
+			
+		} catch (Exception e) {
+			logger.error("getActivoByfechaCompra - error ejecutando consulta [ERROR={}]", e);
+			return new ResponseModel(ResponseModelEnum.INTERNAL_ERROR);
+		}
+	}
+	
+	private boolean validaFechas(Date fechaBaja, Date fechaCompra) {
+		return fechaBaja.before(fechaCompra);
+	}
+
 }

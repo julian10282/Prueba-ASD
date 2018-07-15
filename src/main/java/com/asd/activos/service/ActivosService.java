@@ -114,14 +114,46 @@ public class ActivosService {
 		
 		logger.info("Creating active! --");
 		
-		if (validarParametorActivos(activo)) {
-			logger.info("Missing request parameters");
+		if (validarParametorActivos(activo) && validaFechas(activo)) {
 			return activosController.createActivo(activo);
 		} else {
 			logger.info("Missing request parameters");
 			return new ResponseModel(ResponseModelEnum.BAD_REQUEST);
 		}
 		
+	}
+	
+	@RequestMapping(value = "/actualizar", method = RequestMethod.PUT, produces = {
+			MediaType.APPLICATION_JSON_VALUE })
+	@ApiOperation(value = "actualizar", nickname = "actualizar")
+	@ApiResponses(value = { 
+		@ApiResponse(code = 200, message = "Success", response = ResponseModel.class),
+		@ApiResponse(code = 400, message = "Bad parameter request"),
+		@ApiResponse(code = 404, message = "Request with no result"),
+		@ApiResponse(code = 500, message = "Internal server error")
+		})
+	public ResponseModel updateActivo(@RequestBody ActivosEntity activo){
+		
+		logger.info("Updating active!");
+		
+		if (validarParametorActivos(activo) && validaFechas(activo)) {
+			if (activo.getId() != 0){
+				return activosController.updateActivo(activo);
+			}else{
+				logger.info("Request must have an id to update active!");
+				return new ResponseModel(ResponseModelEnum.BAD_REQUEST);
+			}
+		} else {
+			logger.info("Missing request parameters");
+			return new ResponseModel(ResponseModelEnum.BAD_REQUEST);
+		}
+		
+	}
+
+	private boolean validaFechas(ActivosEntity activo) {
+		boolean result =  activo.getFechaBaja().after(activo.getFechaCompra());
+		logger.info("La fecha de baja debe ser mayo a a la fecha de compra");
+		return result;
 	}
 
 	private boolean validarParametorActivos(ActivosEntity activo) {
