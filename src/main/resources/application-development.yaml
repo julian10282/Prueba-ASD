@@ -1,0 +1,43 @@
+logging:
+  config: /config/logback-spring.xml
+server:
+  port: ${port:5001}
+  proxy:
+    enabled: true
+    host: 192.168.0.6
+    port: 3128
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.0.46:3306/Campaign?autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: betaUser
+    password: betaUser
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  jpa:
+    show-sql: false
+    hibernate:
+      naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+application:
+  scheduler:
+    serchingCampaignProcessStatus: 1|2|4
+    serchingAddresseeProcessStatus: 1|3|4
+    minutesToRetry: 60
+  rabbit:
+    addresses: 192.168.0.133:9922,192.168.0.133:9923,192.168.0.133:9924
+    user: test
+    pass: test
+    producerQueueNames: product.smsi.campaignWebMessage
+    campaignWebMessageQueue: product.smsi.campaignWebMessage
+  delivery:
+    rest:
+      url: http://192.168.0.133:9083/sendMultipleMessages
+  shortenerUrl:
+    rest:
+      url: http://192.168.0.133:9084/receive
+  billingAdmin:
+    url: http://localhost:5008
+    smsi:
+      processPackage: /transaction
