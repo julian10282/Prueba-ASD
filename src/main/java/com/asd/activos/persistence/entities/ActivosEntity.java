@@ -63,7 +63,7 @@ public class ActivosEntity {
 	@Column(name = "responsable")
 	private String responsable;
 	
-	/* (non-Javadoc)
+	/* (non-Javadoc)	
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
